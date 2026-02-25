@@ -1,9 +1,9 @@
-from rest_framework import generics, mixins
+from rest_framework import generics, viewsets
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from .permissions import IsOwner
 from .models import *
 
-from tasks.serializers import RegisterSerializer, TaskSerializer, TagSerializer
+from tasks.serializers import *
 
 class RegisterView(generics.CreateAPIView):
     permission_classes = [AllowAny,]
@@ -33,6 +33,6 @@ class AllTasksListView(generics.ListAPIView):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
 
-class TagListCreateView(generics.ListCreateAPIView):
+class TagViewSet(viewsets.ModelViewSet):
     queryset = Tag.objects.all()
     serializer_class = TagSerializer

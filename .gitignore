@@ -1,4 +1,6 @@
 venv/
 __pycach__/
+task_manager/__pycache__/
+tasks/__pycache__/
 .idea/
 
